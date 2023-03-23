@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <!-- The <head> is meta info -->
+  <head>
+    <title>TestRun</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-family: sans-serif;
+        height: 100%;
+      }
+
+      /* overall container */
+      #container {
+        background-color: pink;
+        width: auto;
+      }
+
+      /*image display container*/
+      #imgCont {
+        background-color: midnightblue;
+      }
+
+      /*card positions*/
+      .upright {
+        height: 80%;
+        position: absolute;
+        bottom: 0;
+        transform: rotate(0deg);
+        overflow: hidden;
+        object-fit: cover;
+        transform: rotate(0deg);
+        transition: transform 0.5s;
+      }
+
+      .reversed {
+        height: 80%;
+        position: absolute;
+        bottom: 0;
+        transform: rotate(0deg);
+        overflow: hidden;
+        object-fit: cover;
+        transform: rotate(180deg);
+        transition: transform 0.5s;
+      }
+
+      #bgImg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(./images/bg-image.png);
+        height: 100%;
+        width: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      #choiceBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: aquamarine;
+        width: 40%;
+        height: auto;
+        min-width: 400px;
+        padding: 5px 10px;
+        z-index: 1;
+        visibility: hidden;
+      }
+
+      button {
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        font-size: 21px;
+        line-height: 33px;
+        margin: 5px;
+        padding: 0px, 20px;
+      }
+
+      #dialogBox {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0px;
+        background-color: maroon;
+        width: 100%;
+        height: 40%;
+        min-height: 150px;
+        padding: 5px 10px;
+      }
+
+      #charaName {
+        display: flex;
+        background-color: lightgrey;
+        margin: 5px 5px;
+        padding: 3px 15px;
+        height: 50px;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      #textBox {
+        display: flex;
+        background-color: lightseagreen;
+        margin: 5px 5px;
+        padding: 5px 15px;
+        height: 100%;
+        min-height: 40px;
+        overflow: auto;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <!-- The <body> element defines the document's body, and is a container for all the visible contents that will be rendered by the browser.  -->
+  <body>
+    <div id="container">
+      <!--image display div-->
+      <div id="imgCont">
+        <div id="bgImg">
+          <img src="images/sprite.jpg" class="upright" id="queenSprite" />
+          <div id="choiceBox">
+            <button id="choice1">Choice One</button>
+            <button id="choice2">Choice Two</button>
+          </div>
+        </div>
+      </div>
+      <div id="dialogBox">
+        <div id="charaName">Speaker</div>
+        <div id="textBox"></div>
+      </div>
+    </div>
+
+    <!-- Everything below this is incorporating JavaScript programming logic into the webpage. -->
+    <!-- The script tag encloses JavaScript syntax for the browser to interpret programtically -->
+    <!-- The following line imports all code written in the script.js file -->
+    <script src="script.js"></script>
+    <!-- Define button click functionality -->
+    <script>
+      //for textbox. on click, or on key press, play function to display next text
+      var textBox = document.querySelector("#dialogBox");
+      textBox.addEventListener("click", function () {});
+      textBox.addEventListener("onkeydown", function () {});
+      //while number of clicks is less than number of objects in array,
+      //each time a player clicks, the next array will be displayed.
+      //from that array, take the data of images, text, speaker, and position of the sprite
+
+      //put final dialog output in the textbox
+      var diaOutput = document.querySelector("#textBox");
+      diaOutput.innerHTML = ``;
+
+      //put final character name output in the character name box
+      var nameOutput = document.querySelector("#charaName");
+      nameOutput.innerHTML = ``;
+
+      //connect variable to queen sprite for rotation
+      // var queenSprite = document.querySelector("#queenSprite");
+      // var queenPos = true;
+      // queenSprite.addEventListener("click", function () {
+      //   if (queenPos) {
+      //     queenSprite.className = "upright";
+      //   } else {
+      //     queenSprite.className = "reversed";
+      //   }
+      //   queenPos = !queenPos;
+      // });
+
+      // Declare and define a variable that represents choice buttons
+      var choice1 = document.querySelector("#choice1");
+      choice1.innerHTML = `choice1`;
+      choice1.addEventListener("click", optionOneFunction);
+      function optionOneFunction() {
+        //move to next array
+      }
+      var choice2 = document.querySelector("#choice2");
+      choice2.innerHTML = `choice2`;
+      choice2.addEventListener("click", optionTwoFunction);
+      function optionTwoFunction() {
+        //skip next array and display the one after that
+      }
+    </script>
+  </body>
+</html>
